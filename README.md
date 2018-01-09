@@ -2,11 +2,18 @@
 
 This is a prebuilt TensorFlow library for Windows. Both static and dynamic libraries are pre-built, which can be used to link to your existing Visual Studio projects.
 
+Three simple steps to build a standalone TensorFlow C++ program:
+1. Git clone this project. [Git LFS](https://git-lfs.github.com/) is used to hold large files.
+2. Install Visual Studio 2017 Preview 2.1
+3. Open this example [Visual Studio project](./example/cc_trainer.sln). Build, and go!
+
 ## Enviornment
-Computer: Macbook Pro with touch bar
+OS: Windows 10
 Compiler: Visual Studio 2017 Preview 2.1
 
-## Steps
+## Steps to Build Libraries Manually
+Note that: You can skip this by just cloning my prebuilt library. It's much easier
+
 Open a Visual Studio 2017 command prompt (you can find it in start menu)
 
 ```
@@ -27,11 +34,13 @@ If you're using Visual Studio 2017, seems that it needs to invoke x64 compiler:
 4. Choose platform to 'x64 (Active)'
 5. Modify `$(VC_ExecutablePath_x64)` to `$(VC_ExecutablePath_x64_x64)`
 
-Then, invoke compiler:
+Then, invoke the builder.
 
 ```
 MSBuild /p:Configuration=Release ALL_BUILD.vcxproj
 ```
+
+This will cost more than one hour, and eat more than 8GB memory. Also make sure you're connected to internet before leaving for a cup of coffee.
 
 ## Collect Pre-built Libraries
 Just execute the [collect script](./collect.sh) to collect them into `include` and `lib` folders.
@@ -59,3 +68,8 @@ snappy\src\snappy\$(Configuration)\snappy.lib
 ```
 
 Furthermore, there are object file dependencies described in the cmake file. They're all resolved and collected into the [collect script](./collect.sh)
+
+## Build Training Example
+Tensorflow has this [trainer example](https://github.com/tensorflow/tensorflow/blob/a77096897f1a8068ca8f57ffb6e3d9e28508cc27/tensorflow/cc/tutorials/example_trainer.cc) to demonstrate the use of C++ API. That demo code is copied under the [example](./example/cc_trainer/Source.cpp), and a working Visual Studio project is located under the [example](./example) folder.
+
+Just open the [Visual Studio project](./example/cc_trainer.sln), and you are good to go!
