@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26608.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cc_trainer", "cc_trainer\cc_trainer.vcxproj", "{BAA00B15-0D47-4227-B89F-A8EA672C2387}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "load_model", "load_model\load_model.vcxproj", "{F8800117-16C7-4D77-AC6B-49FC712B3B2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release|x64 = Release|x64
@@ -12,6 +14,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BAA00B15-0D47-4227-B89F-A8EA672C2387}.Release|x64.ActiveCfg = Release|x64
 		{BAA00B15-0D47-4227-B89F-A8EA672C2387}.Release|x64.Build.0 = Release|x64
+		{F8800117-16C7-4D77-AC6B-49FC712B3B2B}.Release|x64.ActiveCfg = Release|x64
+		{F8800117-16C7-4D77-AC6B-49FC712B3B2B}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

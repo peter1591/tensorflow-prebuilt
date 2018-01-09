@@ -5,7 +5,7 @@ This is a prebuilt TensorFlow library for Windows. Both static and dynamic libra
 Three simple steps to build a standalone TensorFlow C++ program:
 1. Git clone this project. [Git LFS](https://git-lfs.github.com/) is used to hold large files.
 2. Install Visual Studio 2017 Preview 2.1
-3. Open this example [Visual Studio project](./example/cc_trainer.sln). Build, and go!
+3. Open this example [Visual Studio solution](./example/examples.sln). Build, and go!
 
 ## Enviornment
 OS: Windows 10
