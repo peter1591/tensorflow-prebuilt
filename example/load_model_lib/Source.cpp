@@ -1,7 +1,7 @@
 #include <random>
 #include <iostream>
 
-#include "../load_model_lib/Model.h"
+#include "Model.h"
 
 int main(int argc, char* argv[])
 {
@@ -17,9 +17,9 @@ int main(int argc, char* argv[])
 	for (auto & input : inputs) {
 		input.resize(140);
 	}
-
+	
 	while (true) {
-		for (auto & input : inputs) {
+		for (auto & input: inputs) {
 			for (auto & field : input) {
 				field = distribution(random);
 			}

@@ -1,21 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Source.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{F8800117-16C7-4D77-AC6B-49FC712B3B2B}</ProjectGuid>
-    <RootNamespace>Project1</RootNamespace>
+    <ProjectGuid>{2CA5838A-B682-4B9A-A14F-D81DE24ED45C}</ProjectGuid>
+    <RootNamespace>link_with_c17_demo</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <ProjectName>load_model</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -28,15 +57,20 @@
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LibraryPath>$(LibraryPath)</LibraryPath>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -44,24 +78,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\tensorflow;..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_ITERATOR_DEBUG_LEVEL=0;SQLITE_OMIT_LOAD_EXTENSION;EIGEN_AVOID_STL_ARRAY;NOMINMAX;_WIN32_WINNT=0x0A00;LANG_CXX11;COMPILER_MSVC;OS_WIN;_MBCS;WIN64;WIN32_LEAN_AND_MEAN;NOGDI;PLATFORM_WINDOWS;TENSORFLOW_USE_EIGEN_THREADPOOL;EIGEN_HAS_C99_MATH;TF_COMPILE_LIBRARY;GRPC_ARES=0;TF_USE_SNAPPY;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <ShowIncludes>false</ShowIncludes>
-      <DisableSpecificWarnings>4267;4244;4800;4503;4554;4996;4348;4018;4099;4146;4267;4305;4307;4715;4722;4723;4838;4309;4334;4003;4244;4267;4503;4506;4800;4996</DisableSpecificWarnings>
-      <StringPooling>true</StringPooling>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <AdditionalOptions>/bigobj</AdditionalOptions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>zlibstatic.lib;giflib.lib;libpng12_static.lib;libjpeg.lib;lmdb.lib;jsoncpp.lib;farmhash.lib;fft2d.lib;highwayhash.lib;libprotobuf.lib;nsync.lib;snappy.lib;sqlite.lib;tf_protos_cc.lib;tf_cc_ops.lib;tf_cc_framework.lib;tf_core_cpu.lib;tf_core_direct_session.lib;tf_core_framework.lib;tf_core_kernels.lib;tf_core_lib.lib;tf_core_ops.lib;tf_cc_while_loop.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ImportLibrary>
-      </ImportLibrary>
-      <SubSystem>Console</SubSystem>
-      <AdditionalOptions> /machine:x64 /ignore:4049 /ignore:4197 /ignore:4217 /ignore:4221 /WHOLEARCHIVE:tf_cc.lib 
+      <AdditionalDependencies>..\x64\Release\load_model_lib.lib;zlibstatic.lib;giflib.lib;libpng12_static.lib;libjpeg.lib;lmdb.lib;jsoncpp.lib;farmhash.lib;fft2d.lib;highwayhash.lib;libprotobuf.lib;nsync.lib;snappy.lib;sqlite.lib;tf_protos_cc.lib;tf_cc_ops.lib;tf_cc_framework.lib;tf_core_cpu.lib;tf_core_direct_session.lib;tf_core_framework.lib;tf_core_kernels.lib;tf_core_lib.lib;tf_core_ops.lib;tf_cc_while_loop.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\lib</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4049 /ignore:4197 /ignore:4217 /ignore:4221 /WHOLEARCHIVE:tf_cc.lib 
 /WHOLEARCHIVE:tf_cc_framework.lib
 /WHOLEARCHIVE:tf_cc_ops.lib 
 /WHOLEARCHIVE:tf_core_cpu.lib
@@ -72,17 +97,44 @@
 /WHOLEARCHIVE:tf_core_ops.lib   
 /WHOLEARCHIVE:tf_stream_executor.lib
 /WHOLEARCHIVE:libjpeg.lib  </AdditionalOptions>
-      <AdditionalLibraryDirectories>..\..\lib</AdditionalLibraryDirectories>
-      <ShowProgress>NotSet</ShowProgress>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
-    <ProjectReference>
-      <LinkLibraryDependencies>false</LinkLibraryDependencies>
-    </ProjectReference>
     <PreBuildEvent>
       <Command>python ./model/generate_model.py</Command>
     </PreBuildEvent>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
