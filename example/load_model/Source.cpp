@@ -1,7 +1,7 @@
 #include <random>
 #include <iostream>
 
-#include "../load_model_lib/Model.h"
+#include "Model.h"
 
 int main(int argc, char* argv[])
 {
