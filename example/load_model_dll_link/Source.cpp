@@ -1,13 +1,13 @@
 #include <random>
 #include <iostream>
 
-#include "Model.h"
+#include "IModel.h"
 
 int main(int argc, char* argv[])
 {
-	Model model;
+	IModel* model = CreateModel();
 
-	model.Initialize("./model/freezed.pb");
+	model->Initialize("./model/freezed.pb");
 
 	std::mt19937 random;
 	random.seed(std::random_device()());
@@ -26,17 +26,18 @@ int main(int argc, char* argv[])
 				field = distribution(random);
 			}
 		}
-		std::cout << "result: " << model.Predict(inputs[0]) << std::endl;
-		std::cout << "result: " << model.Predict(inputs[1]) << std::endl;
-		std::cout << "result: " << model.Predict(inputs[2]) << std::endl;
+		std::cout << "result: " << model->Predict(inputs[0]) << std::endl;
+		std::cout << "result: " << model->Predict(inputs[1]) << std::endl;
+		std::cout << "result: " << model->Predict(inputs[2]) << std::endl;
 
 		for (auto const& input : inputs) {
-			model.Predict(input);
+			model->Predict(input);
 		}
 
 		std::cout << "calculate " << kBatchSize << " times!" << std::endl;
 	}
 
+	ReleaseModel(model);
 
 	return 0;
 }
